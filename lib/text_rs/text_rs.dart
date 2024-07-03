@@ -4,7 +4,7 @@ import 'package:clay_containers/clay_containers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:google_ml_kit/google_ml_kit.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 
 class TextRs extends StatefulWidget {
   const TextRs({super.key});
@@ -39,7 +39,7 @@ class _TextRsState extends State<TextRs> {
 
     try {
       final inputImage = InputImage.fromFilePath(pickedImage!.path);
-      final textRecognizer = GoogleMlKit.vision.textRecognizer();
+      final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);
       final recognizedText = await textRecognizer.processImage(inputImage);
 
       setState(() {
